@@ -38,7 +38,9 @@ The repository currently contains these SQL scripts (filenames are shown exactly
 4. [`04_Diabetes_Distribution.sql`](./04_Diabetes_Distribution.sql) — diabetes distribution
 5. [`05_Bivariate Analysis.sql`](<./05_Bivariate%20Analysis.sql>) — bivariate summaries
 
-**Note:** A separate `06_Findings_&_Interpretation.sql` file is not currently present in the repository. Findings and interpretation are summarized in this README instead.
+6. [`06_Findings_Interpretation.sql`](./06_Findings_Interpretation.sql) — descriptive outcome distributions and selected cross-tabulations.
+
+The findings script generates descriptive outputs; run it against your SQL Server database and verify the results before adding numerical conclusions to this README.
 
 ## Key Findings
 
