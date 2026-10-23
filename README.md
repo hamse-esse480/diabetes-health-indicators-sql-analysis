@@ -2,9 +2,7 @@
 
 ## Project Overview
 
-This project presents a SQL Server analysis of diabetes-related health indicators using the BRFSS 2021 dataset.
-
-The analysis examines the distribution of diabetes status and descriptive differences across selected demographic, behavioral, health, and socioeconomic characteristics.
+This project presents a SQL Server analysis of diabetes-related health indicators. It examines the distribution of diabetes status and descriptive differences across selected demographic, behavioral, health, and socioeconomic characteristics.
 
 ## Tools Used
 
@@ -13,60 +11,49 @@ The analysis examines the distribution of diabetes status and descriptive differ
 
 ## Dataset
 
-The dataset contains 236,378 observations and 22 variables related to diabetes and health indicators.
+The current project notes describe 236,378 observations and 22 variables. The dataset is described as a BRFSS 2021-derived diabetes health indicators dataset; add the exact download page or original data citation here once verified against the source file and metadata.
 
-Key variables include:
+Key variables described in the project include:
 
-- Diabetes Status
-- High Blood Pressure
-- High Cholesterol
+- Diabetes status
+- High blood pressure
+- High cholesterol
 - BMI
 - Smoking
-- Physical Activity
-- Heart Disease
-- General Health
+- Physical activity
+- Heart disease
+- General health
 - Age
 - Sex
 - Income
 - Education
 
-## Analysis
+## Analysis Workflow
 
-The project includes:
+The repository currently contains these SQL scripts (filenames are shown exactly as stored):
 
-- Data validation
-- Data cleaning
-- Descriptive statistics
-- Diabetes distribution
-- Bivariate analysis
-- Findings and interpretation
+1. [`-01. DATA CHECK & VALIDATION.sql`](<./-01.%20DATA%20CHECK%20%26%20VALIDATION.sql>) — initial data checks and validation
+2. [`--02. DATA CLEANING.sql`](<./--02.%20DATA%20CLEANING.sql>) — cleaning steps
+3. [`03_Descriptive Statistics.sql`](<./03_Descriptive%20Statistics.sql>) — descriptive summaries
+4. [`04_Diabetes_Distribution.sql`](./04_Diabetes_Distribution.sql) — diabetes distribution
+5. [`05_Bivariate Analysis.sql`](<./05_Bivariate%20Analysis.sql>) — bivariate summaries
+
+**Note:** A separate `06_Findings_&_Interpretation.sql` file is not currently present in the repository. Findings and interpretation are summarized in this README instead.
 
 ## Key Findings
 
-Descriptively, diabetes was more common among participants with:
+The existing project summary reports an overall diabetes prevalence of 14.2% and descriptive differences across blood pressure, cholesterol, BMI, physical activity, heart disease, general health, age, income, and education groups. These figures should be re-run against the current dataset and final SQL scripts before being treated as verified final results.
 
-- High blood pressure
-- High cholesterol
-- Obesity
-- No physical activity
-- Heart disease
-- Poorer general health
-- Older age
-- Lower income
+The analysis is descriptive. It does not establish causality or independent effects, and unadjusted group differences may be affected by confounding and the dataset's sampling and measurement limitations.
 
-Diabetes prevalence was 14.2% overall.
+## Data Quality and Limitations
 
-The findings are descriptive and do not establish causal relationships or independent effects.
+- Confirm the dataset source, version, variable definitions, and diabetes outcome coding from the original dataset documentation.
+- Document how missing, invalid, or out-of-range values were handled in the cleaning script.
+- Confirm that the observation count, variable count, and 14.2% estimate match the final cleaned dataset and SQL output.
+- This repository README does not currently contain enough evidence to independently verify those values.
+- Results are descriptive and should not be interpreted as causal relationships.
 
 ## Project Purpose
 
-The purpose of this project is to demonstrate practical skills in SQL Server for health data management, data cleaning, descriptive analysis, bivariate analysis, and interpretation.
-
-## Project Structure
-
-- `01_Data_Check_&_Validation.sql`
-- `02_Data_Cleaning.sql`
-- `03_Descriptive_Statistics.sql`
-- `04_Diabetes_Distribution.sql`
-- `05_Bivariate_Analysis.sql`
-- `06_Findings_&_Interpretation.sql`
+This project demonstrates SQL Server skills in data validation, cleaning, descriptive analysis, bivariate analysis, and interpretation.
