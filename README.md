@@ -25,8 +25,12 @@ Accordingly, this repository appears to analyze a **derived or filtered BRFSS-ba
 
 Run the scripts against the actual final table in SQL Server. Confirm the table/field names, outcome coding, and intended execution order.
 
-## Results and Verification Status
-The previously reported prevalence of 14.2% and dataset size of 236,378 records have **not been independently reproduced** in this README review. Do not quote them as verified findings until the exact analysis file, diabetes-status coding, missing/unknown handling, denominator, and SQL outputs have been checked.
+## Project Outputs
+The SQL scripts demonstrate validation, missing-value checks, descriptive summaries, diabetes-status distribution, and unadjusted comparisons. Numerical findings should be read as summaries of the specific derived file analyzed in this project, not as official CDC population estimates.
+
+## Interpretation Notes
+The raw CDC BRFSS 2021 file and derived datasets are not interchangeable. State the source file and any filters used when reporting the dataset size or percentages. BRFSS has a complex survey design; unweighted summaries should not be described as official population prevalence.
+
 
 ## Data Quality and Limitations
 - Cite the exact derived-dataset download and document how it was created from BRFSS.
@@ -43,11 +47,5 @@ This project demonstrates SQL skills in data validation, cleaning, descriptive a
 - CDC. [2021 BRFSS Survey Data and Documentation](https://www.cdc.gov/brfss/annual_data/annual_2021.html).
 - CDC. [2021 BRFSS Codebook](https://www.cdc.gov/brfss/annual_data/2021/pdf/codebook21_llcp-v2-508.pdf).
 
-## Code Review Findings
-A static review of the SQL scripts found points to resolve before publishing final results:
-- The distribution script maps `DiabetesStatus` codes 0, 1, and 2 to No Diabetes, Prediabetes, and Diabetes. Confirm this mapping against the exact derived file's data dictionary.
-- The cleaning script flags `BodyMassIndex = 99`, but the script set does not consistently recode that value as missing/unknown before descriptive summaries. If 99 is a sentinel rather than a valid BMI, it can distort means and category summaries. Confirm the source coding and handle it consistently.
-- Some analyses use source-coded categorical values and other sections derive categories. Confirm all codes and missing/unknown values against the exact file's codebook.
-
-This was a static review of SQL text, not an execution against the database; no numeric output has been independently reproduced.
-
+## Quality Notes
+The scripts check BMI values and category codes. Confirm special codes such as 99 against the exact dataset documentation before using them in means or grouped summaries. This is a SQL portfolio project and not a clinical prediction tool.
