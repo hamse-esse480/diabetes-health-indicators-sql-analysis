@@ -42,3 +42,12 @@ This project demonstrates SQL skills in data validation, cleaning, descriptive a
 ## References
 - CDC. [2021 BRFSS Survey Data and Documentation](https://www.cdc.gov/brfss/annual_data/annual_2021.html).
 - CDC. [2021 BRFSS Codebook](https://www.cdc.gov/brfss/annual_data/2021/pdf/codebook21_llcp-v2-508.pdf).
+
+## Code Review Findings
+A static review of the SQL scripts found points to resolve before publishing final results:
+- The distribution script maps `DiabetesStatus` codes 0, 1, and 2 to No Diabetes, Prediabetes, and Diabetes. Confirm this mapping against the exact derived file's data dictionary.
+- The cleaning script flags `BodyMassIndex = 99`, but the script set does not consistently recode that value as missing/unknown before descriptive summaries. If 99 is a sentinel rather than a valid BMI, it can distort means and category summaries. Confirm the source coding and handle it consistently.
+- Some analyses use source-coded categorical values and other sections derive categories. Confirm all codes and missing/unknown values against the exact file's codebook.
+
+This was a static review of SQL text, not an execution against the database; no numeric output has been independently reproduced.
+
