@@ -1,21 +1,19 @@
 # Diabetes Health Indicators SQL Analysis
 
 ## Project Overview
-This project uses SQL Server to explore diabetes status and selected demographic, behavioral, and health indicators in a BRFSS-derived dataset. The workflow includes data checks, cleaning, descriptive summaries, diabetes-status distribution, and unadjusted comparisons.
+A descriptive SQL Server project exploring diabetes status and selected demographic, behavioral, and health indicators in a BRFSS-derived dataset. The workflow covers data checks, cleaning, descriptive summaries, outcome distribution, and unadjusted comparisons.
 
-The analysis is descriptive and should not be interpreted as evidence of causation or as a clinical risk-prediction model.
+This project is descriptive. It is not a clinical risk-prediction model and does not establish causal relationships.
 
 ## Tools
 - Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
 - T-SQL
 
-## Dataset
-The existing project notes report 236,378 observations and 22 variables and describe the data as derived from the 2021 Behavioral Risk Factor Surveillance System (BRFSS). Confirm these details against the downloaded file and official documentation before presenting them as verified.
+## Dataset and Source
+The [CDC 2021 BRFSS documentation](https://www.cdc.gov/brfss/annual_data/annual_2021.html) reports 438,693 records and provides official survey data, codebooks, and documentation. The raw CDC file contains many more variables than the 22 variables and 236,378 observations described in the existing project notes.
 
-Variables described in the project include diabetes status, high blood pressure, high cholesterol, BMI, smoking, physical activity, heart disease, general health, age, sex, income, and education.
-
-**Source citation:** The exact download URL, file/version, and license or citation details are not yet recorded here. Add the precise source used for this analysis.
+Accordingly, this repository appears to analyze a **derived or filtered BRFSS-based dataset**, not the complete raw CDC file. The precise download page, transformation/filtering steps, and file version have not been established from the repository alone. Do not describe 236,378 as the size of the full CDC 2021 BRFSS dataset.
 
 ## Analysis Workflow
 1. [-01. DATA CHECK & VALIDATION.sql](<./-01.%20DATA%20CHECK%20%26%20VALIDATION.sql>) — initial checks and validation
@@ -23,22 +21,24 @@ Variables described in the project include diabetes status, high blood pressure,
 3. [03_Descriptive Statistics.sql](<./03_Descriptive%20Statistics.sql>) — descriptive summaries
 4. [04_Diabetes_Distribution.sql](./04_Diabetes_Distribution.sql) — diabetes-status distribution
 5. [05_Bivariate Analysis.sql](<./05_Bivariate%20Analysis.sql>) — unadjusted group comparisons
-6. [06_Findings_Interpretation.sql](./06_Findings_Interpretation.sql) — descriptive outcome distributions and selected cross-tabulations
+6. [06_Findings_Interpretation.sql](./06_Findings_Interpretation.sql) — descriptive distributions and cross-tabulations
 
-Run the scripts against the final cleaned table in SQL Server. Confirm table names, field names, coding, and script sequence against the actual database.
+Run the scripts against the actual final table in SQL Server. Confirm the table/field names, outcome coding, and intended execution order.
 
-## Findings Status
-An earlier project summary reports diabetes prevalence of 14.2%. Recalculate this value, the reported row and variable counts, and all subgroup comparisons from the final cleaned table before quoting them as final findings. This README review has not independently reproduced those calculations.
-
-When reporting prevalence, state the diabetes outcome definition and denominator. Do not combine missing or unknown outcome values with a valid No category unless source coding explicitly justifies that decision.
+## Results and Verification Status
+The previously reported prevalence of 14.2% and dataset size of 236,378 records have **not been independently reproduced** in this README review. Do not quote them as verified findings until the exact analysis file, diabetes-status coding, missing/unknown handling, denominator, and SQL outputs have been checked.
 
 ## Data Quality and Limitations
-- Verify the official source, year, file version, variable definitions, and outcome coding.
-- Document missing-value codes and all exclusions or recoding decisions.
-- Report record counts before and after cleaning.
-- State the denominator used for each percentage.
-- Bivariate results are unadjusted and may be affected by confounding, sampling, and measurement limitations.
-- Do not automatically generalize the findings to all adults or to the current population.
+- Cite the exact derived-dataset download and document how it was created from BRFSS.
+- Follow the CDC codebook for source-variable meanings and codes; do not treat unknown, refused, or missing responses as No without justification.
+- Report the number of records before and after filtering and state the denominator for each percentage.
+- BRFSS uses a complex survey design and weights. Unless the analysis appropriately accounts for that design, describe results as unweighted descriptive results for the analyzed file, not official population prevalence.
+- Bivariate results are unadjusted and may be affected by confounding and measurement limitations.
+- Do not generalize findings to all adults or to the current population without an appropriate design and analysis.
 
 ## Project Purpose
 This project demonstrates SQL skills in data validation, cleaning, descriptive analysis, outcome distribution, bivariate summaries, and responsible interpretation of public-health data.
+
+## References
+- CDC. [2021 BRFSS Survey Data and Documentation](https://www.cdc.gov/brfss/annual_data/annual_2021.html).
+- CDC. [2021 BRFSS Codebook](https://www.cdc.gov/brfss/annual_data/2021/pdf/codebook21_llcp-v2-508.pdf).
